@@ -1,0 +1,11 @@
+# IDE
+.idea
+.vscode
+
+# Environment
+.env
+.github
+
+# Local
+work
+venv
