@@ -7,6 +7,15 @@ class GithubCommentFetcher:
         self.github_token = github_token
 
     def parse_comment_url(self, comment_url: str) -> Tuple[str, str, int, int]:
+        """
+        Parse the GitHub comment URL and return the owner, repo, issue number, and comment ID.
+        Args:
+            comment_url: The URL of the GitHub comment.
+        Returns:
+            A tuple of (owner, repo, issue_number, comment_id).
+        Raises:
+            ValueError: If the comment URL is invalid.
+        """
         match = re.match(
             r"https://github\.com/(?P<owner>[^/]+)/(?P<repo>[^/]+)/issues/(?P<issue_number>\d+)#issuecomment-(?P<comment_id>\d+)",
             comment_url,
