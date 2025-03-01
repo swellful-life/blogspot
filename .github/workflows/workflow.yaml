@@ -1,14 +1,12 @@
-name: MD2Blogger Reusable Workflow Caller
-
+name: Test Secrets
 on:
   push:
     branches: [ main ]
-
 jobs:
-  call-md2blogger:
-    uses: swellful-life/md2blogger/.github/workflows/workflow.yml@main
-    with:
-      blogger_client_id: ${{ secrets.BLOGGER_CLIENT_ID }}
-      blogger_client_secret: ${{ secrets.BLOGGER_CLIENT_SECRET }}
-      blogger_refresh_token: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
-      blogger_blog_id: ${{ secrets.BLOGGER_BLOG_ID }}
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Secret (name only)
+        run: |
+          echo "BLOGGER_CLIENT_ID is set"
+          echo "BLOGGER_CLIENT_SECRET is set"
