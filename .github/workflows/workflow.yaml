@@ -9,12 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call MD2Blogger workflow
-        uses: swellful-life/md2blogger/.github/workflows/workflow.yml@main
-        with:
-          blogger_client_id: ${{ secrets.BLOGGER_CLIENT_ID }}
-          blogger_client_secret: ${{ secrets.BLOGGER_CLIENT_SECRET }}
-          blogger_refresh_token: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
-          blogger_blog_id: ${{ secrets.BLOGGER_BLOG_ID }}
+        run : |
+            echo "blogger_client_id: ${{ secrets.BLOGGER_CLIENT_ID }}"
+            echo "blogger_client_secret: ${{ secrets.BLOGGER_CLIENT_SECRET }}"
+            echo "blogger_refresh_token: ${{ secrets.BLOGGER_REFRESH_TOKEN }}"
+            echo "blogger_blog_id: ${{ secrets.BLOGGER_BLOG_ID }}"
 
 #    uses: swellful-life/md2blogger/.github/workflows/workflow.yml@main
 #    with:
