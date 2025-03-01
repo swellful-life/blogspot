@@ -6,7 +6,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo Secret (name only)
+      - name: Check if BLOGGER_CLIENT_ID is set
         run: |
-          echo "BLOGGER_CLIENT_ID is set"
-          echo "BLOGGER_CLIENT_SECRET is set"
+          if [ -z "${{ secrets.BLOGGER_CLIENT_ID }}" ]; then
+            echo "BLOGGER_CLIENT_ID is not set"
+            exit 1
+          else
+            echo "BLOGGER_CLIENT_ID is set"
+          fi
