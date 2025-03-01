@@ -1,16 +1,14 @@
-name: Test Secrets
+name: MD2Blogger Reusable Workflow Caller
+
 on:
   push:
     branches: [ main ]
+
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check if BLOGGER_CLIENT_ID is set
-        run: |
-          if [ -z "${{ secrets.BLOGGER_CLIENT_ID }}" ]; then
-            echo "BLOGGER_CLIENT_ID is not set"
-            exit 1
-          else
-            echo "BLOGGER_CLIENT_ID is set"
-          fi
+  call-md2blogger:
+    uses: swellful-life/md2blogger/.github/workflows/workflow.yml@main
+    with:
+      blogger_client_id: ${{ secrets.BLOGGER_CLIENT_ID }}
+      blogger_client_secret: ${{ secrets.BLOGGER_CLIENT_SECRET }}
+      blogger_refresh_token: ${{ secrets.BLOGGER_REFRESH_TOKEN }}
+      blogger_blog_id: ${{ secrets.BLOGGER_BLOG_ID }}
